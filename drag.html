@@ -3,23 +3,62 @@
 <head>
   <meta charset="utf-8">
   <title>jQuery UI Droppable - Simple photo manager</title>
-  <link rel="stylesheet" href="js/jquery-ui.css">
+
   <script src="js/external/jquery/jquery.js"></script>
   <script src="js/jquery-ui.js"></script>
   <style>
-  #gallery { float: left; width: 65%; min-height: 12em; }
+  #gallery { float: right; width: 730px; min-height: 12em; }
   .gallery.custom-state-active { background: #eee; }
-  .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+  .gallery li { float: left; width: 350px; margin: 0 0.4em 0.4em 0; }
   .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
   .gallery li a { float: right; }
   .gallery li a.ui-icon-zoomin { float: left; }
   .gallery li img { width: 100%; cursor: move; }
  
-  #trash { float: right; width: 32%; min-height: 18em; padding: 1%; }
+  #trash { float: left; width: 350px; height: 210px; border:solid 1px #003663; background-color:#6699c2; color:#FFFFFF; }
   #trash h4 { line-height: 16px; margin: 0 0 0.4em; }
   #trash h4 .ui-icon { float: left; }
-  #trash .gallery h5 { display: none; }
+  
   </style>
+
+</head>
+<body>
+ 
+<div class="ui-widget ui-helper-clearfix">
+
+  <div id="trash" class="ui-widget-content ui-state-default">
+    <div>Arrastra a esta sección uno de los elementos.</div>
+  </div>
+   
+  <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+    <li class="ui-widget-content ui-corner-tr">
+      <div class="ui-widget-header">Fecha de Nacimiento</div>
+      <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete</a>
+    </li>
+    <li class="ui-widget-content ui-corner-tr">
+      <h5 class="ui-widget-header">Estado civil</h5>
+      <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete</a>
+    </li>
+    <li class="ui-widget-content ui-corner-tr">
+      <h5 class="ui-widget-header">Edad</h5>
+      <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete</a>
+    </li>
+    <li class="ui-widget-content ui-corner-tr">
+      <h5 class="ui-widget-header">Nacionalidad</h5>
+      <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete</a>
+    </li>
+    <li class="ui-widget-content ui-corner-tr">
+      <h5 class="ui-widget-header">E-mail</h5>
+      <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete</a>
+    </li>
+    <li class="ui-widget-content ui-corner-tr">
+      <h5 class="ui-widget-header">Celular</h5>
+      <a href="link/to/trash/script/when/we/have/js/off" title="Muestra esta imagen" class="ui-icon ui-icon-trash">Delete</a>
+    </li>
+  </ul>
+ 
+</div>
+ 
   <script>
   $(function() {
     // there's the gallery and the trash
@@ -64,9 +103,9 @@
         $item.find( "a.ui-icon-trash" ).remove();
         $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
           $item
-            .animate({ width: "48px" })
+            .animate({ width: "350px" })
             .find( "img" )
-              .animate({ height: "36px" });
+              .animate({ height: "50px" });
         });
       });
     }
@@ -79,10 +118,10 @@
           .find( "a.ui-icon-refresh" )
             .remove()
           .end()
-          .css( "width", "96px")
+          .css( "width", "350px")
           .append( trash_icon )
           .find( "img" )
-            .css( "height", "72px" )
+            .css( "height", "50px" )
           .end()
           .appendTo( $gallery )
           .fadeIn();
@@ -126,45 +165,6 @@
       return false;
     });
   });
-  </script>
-</head>
-<body>
- 
-<div class="ui-widget ui-helper-clearfix">
- 
-<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-  <li class="ui-widget-content ui-corner-tr">
-    <h5 class="ui-widget-header">High Tatras</h5>
-    <img src="images/high_tatras_min.jpg" alt="The peaks of High Tatras" width="96" height="72">
-    <a href="images/high_tatras.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-    <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
-  </li>
-  <li class="ui-widget-content ui-corner-tr">
-    <h5 class="ui-widget-header">High Tatras 2</h5>
-    <img src="images/high_tatras2_min.jpg" alt="The chalet at the Green mountain lake" width="96" height="72">
-    <a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-    <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
-  </li>
-  <li class="ui-widget-content ui-corner-tr">
-    <h5 class="ui-widget-header">High Tatras 3</h5>
-    <img src="images/high_tatras3_min.jpg" alt="Planning the ascent" width="96" height="72">
-    <a href="images/high_tatras3.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-    <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
-  </li>
-  <li class="ui-widget-content ui-corner-tr">
-    <h5 class="ui-widget-header">High Tatras 4</h5>
-    <img src="images/high_tatras4_min.jpg" alt="On top of Kozi kopka" width="96" height="72">
-    <a href="images/high_tatras4.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-    <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
-  </li>
-</ul>
- 
-<div id="trash" class="ui-widget-content ui-state-default">
-  <h4 class="ui-widget-header"><span class="ui-icon ui-icon-trash">Trash</span> Trash</h4>
-</div>
- 
-</div>
- 
- 
+  </script> 
 </body>
 </html>
