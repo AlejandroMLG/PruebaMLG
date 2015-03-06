@@ -3,22 +3,43 @@
 <head>
   <meta charset="utf-8">
   <title>jQuery UI Droppable - Simple photo manager</title>
-
-  <script src="js/external/jquery/jquery.js"></script>
-  <script src="js/jquery-ui.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
   <style>
-  #gallery { float: right; width: 730px; min-height: 12em; }
+  *{
+	  margin:0px;
+	  padding:0px;
+	  }
+  body{
+	  width:1200px;
+	  margin:0px auto;
+	  }
+
+  .oswald-700{font-family:"Oswald"; font-weight:700;}  
+  .oswald-400{font-family:"Oswald"; font-weight:400;}
+  .oswald-300{font-family:"Oswald"; font-weight:300;}
+
+  .font24{ font-size:24px;}
+  .font28{ font-size:28px;}
+  
+  .padding16{ padding:16px;}
+
+  .ui-helper-reset{
+	  list-style:none;
+	  padding:0px;
+	  }
+  
+  #gallery { float: right; width: 730px; height: 210px; border:solid 1px #003663;}
   .gallery.custom-state-active { background: #eee; }
-  .gallery li { float: left; width: 350px; margin: 0 0.4em 0.4em 0; }
-  .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+  .gallery li { float: left; width: 350px; border:solid 1px #454545; }
+  .gallery li h5 { cursor: move; }
   .gallery li a { float: right; }
   .gallery li a.ui-icon-zoomin { float: left; }
   .gallery li img { width: 100%; cursor: move; }
  
-  #trash { float: left; width: 350px; height: 210px; border:solid 1px #003663; background-color:#6699c2; color:#FFFFFF; }
+  .dato-activo { float: left; width: 350px; height: 210px; border:solid 1px #003663; background-color:#6699c2; color:#FFFFFF;}
   #trash h4 { line-height: 16px; margin: 0 0 0.4em; }
   #trash h4 .ui-icon { float: left; }
-  
+  #trash{ border-top:dotted 2px #000000; border-bottom:dotted 2px #000000; width:350px; height:46px; background-color:#ffffff;}
   </style>
 
 </head>
@@ -26,10 +47,11 @@
  
 <div class="ui-widget ui-helper-clearfix">
 
-  <div id="trash" class="ui-widget-content ui-state-default">
-    <div>Arrastra a esta sección uno de los elementos.</div>
-  </div>
-   
+<div class="dato-activo">
+  <div class="font24 oswald-400 padding16"><i>Arrastra a esta sección uno de los elementos.</i></div>
+  <div id="trash" class="ui-widget-content ui-state-default"></div>
+</div>
+
   <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
     <li class="ui-widget-content ui-corner-tr">
       <div class="ui-widget-header">Fecha de Nacimiento</div>
@@ -59,6 +81,9 @@
  
 </div>
  
+ 
+  <script src="js/external/jquery/jquery.js"></script>
+  <script src="js/jquery-ui.js"></script>
   <script>
   $(function() {
     // there's the gallery and the trash
